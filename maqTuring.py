@@ -1,3 +1,4 @@
+# Maquina de turing con restriccion de infinto solo hacia derecha
 class MaqTuring:
     # constructor
     def __init__(self, cinta, alfabeto, alfabeto_r, estados, transiciones):
@@ -27,7 +28,10 @@ class MaqTuring:
             # el caracter se escribe en la cinta
             self.cinta[self.posicion_cabezal] = caracter_escrito
 
-            if direccion == 'L' : 
+            if direccion == 'L' :
+                if self.posicion_cabezal == 0:
+                    print("no se puede hacia la izq esta MT, error")
+                    return False
                 self.posicion_cabezal -= 1 
             elif direccion == 'R' : 
                 self.posicion_cabezal += 1
